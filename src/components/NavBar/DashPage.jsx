@@ -64,7 +64,6 @@ export default function BasicGrid() {
     },
   }));
 
-  const theme = useTheme();
 
   return (
     <>
