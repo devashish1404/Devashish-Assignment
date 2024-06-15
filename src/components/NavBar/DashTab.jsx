@@ -16,20 +16,6 @@ import TableRow from "@mui/material/TableRow";
 import React, { useState } from "react";
 
 const RecentApp = () => {
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  }));
-
-  const [selectedOption, setSelectedOption] = useState("");
-
-  const handleChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
   return (
     <Paper
       elevation={1}
@@ -39,7 +25,7 @@ const RecentApp = () => {
         background: "#80808052",
       }}
     >
-      {/* <Box sx={{ marginLeft: {}, marginInline: "5%" }}> */}
+      
       {/*******1st part *****/}
       <Grid
         container
