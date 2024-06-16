@@ -11,24 +11,21 @@ import PieChartIcon from "@mui/icons-material/PieChart";
 import SearchIcon from "@mui/icons-material/Search";
 import SettingsIcon from "@mui/icons-material/Settings";
 import WalletIcon from "@mui/icons-material/Wallet";
-import {
-  Box,
-  CssBaseline,
-  Divider,
-  IconButton,
-  InputAdornment,
-  InputBase,
-  List,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { InputAdornment, InputBase } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
 import MuiDrawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 import { styled, useTheme } from "@mui/material/styles";
-import React from "react";
+import * as React from "react";
 import DashPage from "../NavBar/DashPage";
 
 const drawerWidth = 180;
@@ -120,7 +117,6 @@ const Drawer = styled(MuiDrawer, {
   flexShrink: 0,
   whiteSpace: "nowrap",
   boxSizing: "border-box",
-  // background: "#80808052",
   ...(open && {
     ...openedMixin(theme),
     "& .MuiDrawer-paper": openedMixin(theme),
@@ -148,26 +144,41 @@ export default function MiniDrawer() {
       <CssBaseline />
 
       {/*****AppBar start ********/}
+
       <AppBar position="absolute" open={open}>
         <Toolbar>
-          <IconButton
+          {/* <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="end"
             sx={{
               marginRight: 5,
-              // ...(open && { display: "none" }),
-              visibility: "hidden",
+              ...(open && { display: "none" }),
             }}
           >
             <MenuIcon />
-          </IconButton>
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
-            <Typography sx={{ fontSize: { md: "2rem", sm: "1rem" } }}>
+          </IconButton> */}
+          <Box sx={{}} />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              paddingLeft: { md: "5%", xs: "20%" },
+            }}
+          >
+            <Typography
+              sx={{
+                textAlign: "left",
+                fontSize: { md: "2rem", xs: "0.8rem" },
+              }}
+            >
               ALDENAIRE & PARTNERS
             </Typography>
             <Typography sx={{ textAlign: "left" }}>
               <span>Sales Management Dashboard</span>
             </Typography>
           </Box>
-
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <InputBase
@@ -202,6 +213,7 @@ export default function MiniDrawer() {
               color="inherit"
               onClick={handleDrawerOpen}
               sx={{
+                display: { md: "flex", xs: "block" },
                 width: "50px",
                 height: "40px",
                 border: "1px solid black",
@@ -210,14 +222,23 @@ export default function MiniDrawer() {
                   "linear-gradient(to right, rgb(164 63 177), rgb(56 103 175))",
               }}
             >
-              <MenuIcon fontSize="large" />
+              <MenuIcon
+                fontSize="large"
+                sx={{
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                }}
+              />
             </IconButton>
           </Box>
         </Toolbar>
       </AppBar>
+
       {/****AppBar End***********/}
 
       {/****Drawer start *******/}
+
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
@@ -257,8 +278,12 @@ export default function MiniDrawer() {
           </ListItemButton>
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+
+      {/******************Drawer end*************/}
+
+      <Box component="main" sx={{ flexGrow: 1, p: 3, background: "black" }}>
         <DrawerHeader />
+
         <DashPage />
       </Box>
     </Box>
